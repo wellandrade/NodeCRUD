@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <table>
+      <tr style="background-color: aqua;">
+        <td>Nome</td>
+        <td>Idade</td>
+        <td>Ação</td>
+      </tr>
+      <% 
+        cliente.forEach(function (item) {
+          %>
+          <tr>
+            <td><a href="new/<%= item._id %>"><%= item.nome %></a></td>
+            <td><%= item.idade %></td>
+            <td><a href="/delete/<%= item._id %>" onclick="return confirm('Tem certeza?');" >Excluir</a></td>
+          </tr>
+          <% 
+        })
+      %>
+    </table>
+    <a href="/new">Cadastra Novo</a>
+  </body>
+</html>
